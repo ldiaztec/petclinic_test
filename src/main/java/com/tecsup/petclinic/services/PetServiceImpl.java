@@ -1,18 +1,17 @@
 package com.tecsup.petclinic.services;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 import com.tecsup.petclinic.dtos.PetDTO;
+import com.tecsup.petclinic.entities.Pet;
+import com.tecsup.petclinic.exceptions.PetNotFoundException;
 import com.tecsup.petclinic.mappers.PetMapper;
+import com.tecsup.petclinic.repositories.PetRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import com.tecsup.petclinic.entities.Pet;
-import com.tecsup.petclinic.exceptions.PetNotFoundException;
-import com.tecsup.petclinic.repositories.PetRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  *
