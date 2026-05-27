@@ -143,7 +143,6 @@ CREATE TABLE IF NOT EXISTS visits (
     ON DELETE SET NULL
     ON UPDATE CASCADE
 ) ENGINE=InnoDB;
-
 -- ===============================================
 -- END OF SCHEMA CREATION
 -- ===============================================
