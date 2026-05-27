@@ -1,17 +1,19 @@
 package com.tecsup.petclinic.services;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
 import com.tecsup.petclinic.dtos.PetDTO;
 import com.tecsup.petclinic.entities.Pet;
 import com.tecsup.petclinic.exceptions.PetNotFoundException;
 import com.tecsup.petclinic.mappers.PetMapper;
 import com.tecsup.petclinic.repositories.PetRepository;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  *
@@ -21,6 +23,7 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 @RequiredArgsConstructor
+@SuppressWarnings("null") 
 public class PetServiceImpl implements PetService {
 
 	private final PetRepository petRepository;
@@ -28,8 +31,7 @@ public class PetServiceImpl implements PetService {
 
 
 	/**
-	 * 
-	 * @param petDTO
+	 * * @param petDTO
 	 * @return
 	 */
 	@Override
@@ -41,8 +43,7 @@ public class PetServiceImpl implements PetService {
 	}
 
 	/**
-	 * 
-	 * @param petDTO
+	 * * @param petDTO
 	 * @return
 	 */
 	@Override
@@ -56,8 +57,7 @@ public class PetServiceImpl implements PetService {
 
 
 	/**
-	 * 
-	 * @param id
+	 * * @param id
 	 * @throws PetNotFoundException
 	 */
 	@Override
@@ -70,12 +70,14 @@ public class PetServiceImpl implements PetService {
 	}
 
 	/**
-	 * 
-	 * @param id
+	 * * @param id
 	 * @return
 	 */
 	@Override
 	public PetDTO findById(Integer id) throws PetNotFoundException {
+		if (id == null) {
+			throw new PetNotFoundException("The provided ID is null");
+		}
 
 		Optional<Pet> pet = petRepository.findById(id);
 
@@ -86,8 +88,7 @@ public class PetServiceImpl implements PetService {
 	}
 
 	/**
-	 * 
-	 * @param name
+	 * * @param name
 	 * @return
 	 */
 	@Override
@@ -104,8 +105,7 @@ public class PetServiceImpl implements PetService {
 	}
 
 	/**
-	 * 
-	 * @param typeId
+	 * * @param typeId
 	 * @return
 	 */
 	@Override
@@ -119,8 +119,7 @@ public class PetServiceImpl implements PetService {
 	}
 
 	/**
-	 * 
-	 * @param ownerId
+	 * * @param ownerId
 	 * @return
 	 */
 	@Override

@@ -1,10 +1,11 @@
 package com.tecsup.petclinic.repositories;
 
-import com.tecsup.petclinic.entities.Pet;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.tecsup.petclinic.entities.Pet;
 
 /**
  * 
@@ -24,7 +25,5 @@ public interface PetRepository
 	// Fetch pets by ownerId
 	List<Pet> findByOwnerId(int ownerId);
 
-	@Override
-	List<Pet> findAll();
 
 }
