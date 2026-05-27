@@ -15,9 +15,7 @@ public class VetServiceTest {
     @Autowired
     private VetService vetService;
 
-    /**
-     * 1. PRUEBA DE CREACIÓN (CREATE)
-     */
+    
     @Test
     public void testCreateVet() {
         String FIRST_NAME = "Carlos";
