@@ -71,4 +71,29 @@ public class PetServiceTest {
 
         log.info("Mascota eliminada");
     }
+
+
+    @Test
+    void testPetNameNotNull() {
+
+        Pet pet = new Pet();
+
+        pet.setName("Rocky");
+
+        assertNotNull(pet.getName());
+
+        log.info("El nombre de la mascota no es nulo");
+    }
+
+    @Test
+    void testPetType() {
+
+        Pet pet = new Pet();
+
+        pet.setTypeId(2);
+
+        assertEquals(2, pet.getTypeId());
+
+        log.info("Tipo de mascota correcto");
+    }
 }
