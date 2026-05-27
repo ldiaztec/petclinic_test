@@ -26,7 +26,6 @@ public class OwnerServiceTest {
     @Mock
     private OwnerRepository ownerRepository;
 
-    // Inyectamos los mocks en la implementación concreta del servicio
     @InjectMocks
     private OwnerServiceImpl ownerService;
 
@@ -35,7 +34,6 @@ public class OwnerServiceTest {
     @BeforeEach
     void setUp() {
         ownerTest = new Owner();
-        // Nota: Asegúrate de que tu entidad Owner tenga estos métodos setter
         ownerTest.setId(1);
         ownerTest.setFirstName("Juan");
         ownerTest.setLastName("Perez");
@@ -46,13 +44,10 @@ public class OwnerServiceTest {
 
     @Test
     public void testCreateOwner() {
-        // Preparar
         when(ownerRepository.save(any(Owner.class))).thenReturn(ownerTest);
 
-        // Ejecutar (Asumiendo que el método en OwnerService se llama create o save)
         Owner createdOwner = ownerService.create(ownerTest); 
 
-        // Validar
         assertNotNull(createdOwner);
         assertEquals("Juan", createdOwner.getFirstName());
         verify(ownerRepository, times(1)).save(ownerTest);
@@ -60,13 +55,10 @@ public class OwnerServiceTest {
 
     @Test
     public void testFindOwnerById() {
-        // Preparar
         when(ownerRepository.findById(1)).thenReturn(Optional.of(ownerTest));
 
-        // Ejecutar
         Owner foundOwner = ownerService.findById(1);
 
-        // Validar
         assertNotNull(foundOwner);
         assertEquals("Perez", foundOwner.getLastName());
         verify(ownerRepository, times(1)).findById(1);
@@ -74,16 +66,12 @@ public class OwnerServiceTest {
 
     @Test
     public void testUpdateOwner() {
-        // Preparar
         when(ownerRepository.save(any(Owner.class))).thenReturn(ownerTest);
 
-        // Modificar dato
         ownerTest.setCity("Lima");
 
-        // Ejecutar
         Owner updatedOwner = ownerService.update(ownerTest);
 
-        // Validar
         assertNotNull(updatedOwner);
         assertEquals("Lima", updatedOwner.getCity());
         verify(ownerRepository, times(1)).save(ownerTest);
@@ -91,13 +79,10 @@ public class OwnerServiceTest {
 
     @Test
     public void testDeleteOwner() {
-        // Preparar
         doNothing().when(ownerRepository).deleteById(1);
 
-        // Ejecutar
         ownerService.delete(1);
 
-        // Validar
         verify(ownerRepository, times(1)).deleteById(1);
     }
 }
