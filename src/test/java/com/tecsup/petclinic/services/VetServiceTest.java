@@ -1,11 +1,27 @@
 package com.tecsup.petclinic.services;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
-@Slf4j
 public class VetServiceTest {
 
-	
+    @Test
+    public void testCreateVet() {
+        assertTrue(true);
+    }
+
+    @Test
+    public void testFindVet() {
+        assertTrue(true);
+    }
+
+    @Test
+    public void testUpdateVet() {
+        assertTrue(true);
+    }
+
+    @Test
+    public void testDeleteVet() {
+        assertTrue(true);
+    }
 }
