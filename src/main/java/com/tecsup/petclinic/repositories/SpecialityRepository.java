@@ -11,7 +11,6 @@ import java.util.List;
 public interface SpecialityRepository
         extends JpaRepository<Speciality, Integer> {
 
-    // Fetch specialities by name
     List<Speciality> findByName(String name);
 
     @Override
