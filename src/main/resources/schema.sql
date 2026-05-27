@@ -53,13 +53,14 @@ CREATE INDEX idx_specialties_name ON specialties(name);
 -- Description: Many-to-many relationship between vets and specialties
 -- ===============================================
 CREATE TABLE IF NOT EXISTS vet_specialties (
+  id                  INT AUTO_INCREMENT,
   vet_id              INT NOT NULL,
   specialty_id        INT NOT NULL,
   certification_date  DATE,
   years_experience    INT DEFAULT 0,
   is_primary          BOOLEAN DEFAULT FALSE,
   notes               VARCHAR(255),
-  PRIMARY KEY (vet_id, specialty_id),
+  PRIMARY KEY (id),
   FOREIGN KEY (vet_id) REFERENCES vets(id) 
     ON DELETE CASCADE 
     ON UPDATE CASCADE,
