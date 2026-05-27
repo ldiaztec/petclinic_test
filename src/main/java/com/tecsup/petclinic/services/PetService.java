@@ -3,68 +3,15 @@ package com.tecsup.petclinic.services;
 import com.tecsup.petclinic.dtos.PetDTO;
 import com.tecsup.petclinic.entities.Pet;
 import com.tecsup.petclinic.exceptions.PetNotFoundException;
-
 import java.util.List;
 
-/**
- * 
- * @author jgomezm
- *
- */
 public interface PetService {
-
-	/**
-	 * 
-	 * @param petDTO
-	 * @return
-	 */
-	public PetDTO create(PetDTO petDTO);
-
-	/**
-	 * 
-	 * @param pet
-	 * @return
-	 */
-	PetDTO update(PetDTO pet);
-
-	/**
-	 * 
-	 * @param id
-	 * @throws PetNotFoundException
-	 */
-	void delete(Integer id) throws PetNotFoundException;
-
-	/**
-	 * 
-	 * @param id
-	 * @return
-	 */
-	PetDTO findById(Integer id) throws PetNotFoundException;
-
-	/**
-	 * 
-	 * @param name
-	 * @return
-	 */
-	List<PetDTO> findByName(String name);
-
-	/**
-	 * 
-	 * @param typeId
-	 * @return
-	 */
-	List<Pet> findByTypeId(int typeId);
-
-	/**
-	 * 
-	 * @param ownerId
-	 * @return
-	 */
-	List<Pet> findByOwnerId(int ownerId);
-
-	/**
-	 *
-	 * @return
-	 */
-	List<Pet> findAll();
+    PetDTO create(PetDTO petDTO);
+    PetDTO update(PetDTO petDTO);
+    void delete(Integer id) throws PetNotFoundException;
+    PetDTO findById(Integer id) throws PetNotFoundException;
+    List<PetDTO> findByName(String name);
+    List<Pet> findByTypeId(int typeId);
+    List<Pet> findByOwnerId(int ownerId);
+    List<Pet> findAll();
 }

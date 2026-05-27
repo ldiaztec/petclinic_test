@@ -92,6 +92,9 @@ INSERT INTO visits (id, pet_id, vet_id, visit_date, description, cost) VALUES
 (5, 1, 1, '2024-01-15', 'general checkup', 65.00),
 (6, 3, 4, '2024-02-20', 'dental cleaning', 150.00);
 
+INSERT INTO vet_specialties (vet_id, specialty_id, certification_date, years_experience, is_primary, notes)
+VALUES (1, 1, '2020-01-01', 5, TRUE, 'Primary specialty');
+
 -- ===============================================
 -- END OF DATA INSERTION
 -- ===============================================
