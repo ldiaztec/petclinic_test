@@ -7,31 +7,4 @@ import org.springframework.boot.test.context.SpringBootTest;
 @Slf4j
 public class SpecialtyServiceTest {
 
-	//@Autowired
-   //	private OwnerService ownerService;
-
-	/**
-	 * 
-	 */
-	/*
-	@Test
-	public void testFindOwnerById() {
-
-		long ID = 1;
-		String NAME = "Jaime";
-		Owner owner = null;
-		
-		try {
-			
-			owner = ownerService.findById(ID);
-			
-		} catch (OwnertNotFoundException e) {
-			fail(e.getMessage());
-		}
-		log.info("" + owner);
-
-		assertEquals(NAME, owner.getName());
-
-	}
-	*/
 }
