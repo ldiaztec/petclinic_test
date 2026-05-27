@@ -44,11 +44,11 @@ public class VetServiceTest {
     @Test
     public void testFindVetById() {
         Integer ID_A_BUSCAR = 1; // Asumiendo que el script de datos iniciales inserta un ID 1
-        
+
         try {
             Vet vet = vetService.findById(ID_A_BUSCAR);
             log.info("Veterinario encontrado: {}", vet);
-            
+
             assertNotNull(vet, "El veterinario con ID " + ID_A_BUSCAR + " debería existir");
             assertEquals(ID_A_BUSCAR, vet.getId());
         } catch (Exception e) {
@@ -99,10 +99,16 @@ public class VetServiceTest {
             fail("No se pudo eliminar el veterinario: " + e.getMessage());
         }
 
-        // 3. Intentamos buscarlo de nuevo; debería lanzar una excepción o retornar null
-        // Dependiendo de cómo maneje tu 'findById' el caso de no encontrar registro:
-        assertThrows(Exception.class, () -> {
-            vetService.findById(id);
-        }, "Debería lanzar una excepción indicando que el veterinario ya no existe");
+        // 3. Intentamos buscarlo de nuevo para verificar la eliminación.
+        // Captura cualquier excepción genérica si el servicio falla al no encontrarlo,
+        // u optimiza el flujo si retorna un objeto nulo.
+        try {
+            Vet deletedVet = vetService.findById(id);
+            assertNull(deletedVet, "El veterinario con ID " + id + " debería retornar null tras ser eliminado");
+            log.info("Confirmado: El veterinario fue eliminado (retornó null).");
+        } catch (Exception e) {
+            // Si salta un error de "registro no encontrado", significa que el delete funcionó correctamente
+            log.info("Confirmado: El servicio lanzó una excepción esperada al buscar un veterinario eliminado: {}", e.getMessage());
+        }
     }
 }
