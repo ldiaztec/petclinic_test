@@ -6,11 +6,6 @@ import com.tecsup.petclinic.exceptions.VetNotFoundException;
 
 import java.util.List;
 
-/**
- *
- * @author jgomezm
- *
- */
 public interface VetService {
 
     VetDTO create(VetDTO vetDTO);
